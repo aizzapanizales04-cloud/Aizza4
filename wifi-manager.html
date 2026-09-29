@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aizza WiFi Manager - ACT4</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            background: #f5f6f8;
+
+            color: #171717;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            padding: 40px 20px;
+        }
+
+
+        .wrapper {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            margin: auto;
+        }
+
+
+        .brand {
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: #555;
+
+            margin-bottom: 45px;
+        }
+
+
+        .eyebrow {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #888;
+
+            margin-bottom: 10px;
+        }
+
+
+        h1 {
+
+            margin: 0;
+
+            font-size: 45px;
+
+            font-weight: 500;
+
+            letter-spacing: -1px;
+        }
+
+
+        .subtitle {
+
+            margin-top: 15px;
+
+            margin-bottom: 35px;
+
+            color: #888;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        form {
+
+            background: #fff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 28px;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #777;
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 22px;
+
+            border: 1px solid #dcdfe4;
+
+            border-radius: 8px;
+
+            background: #fafafa;
+
+            outline: none;
+
+            font-size: 14px;
+
+            color: #171717;
+        }
+
+
+        input:focus {
+
+            border-color: #111;
+
+            background: #fff;
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #111;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            cursor: pointer;
+        }
+
+
+        button:hover {
+
+            background: #333;
+        }
+
+
+        .note {
+
+            margin-top: 20px;
+
+            font-size: 11px;
+
+            color: #888;
+
+            line-height: 1.6;
+        }
+
+
+        footer {
+
+            margin-top: 45px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #ddd;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #aaa;
+        }
+
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 25px 15px;
+            }
+
+
+            h1 {
+                font-size: 38px;
+            }
+
+
+            form {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="wrapper">
+
+
+        <div class="brand">
+            AIZZA
+        </div>
+
+
+        <p class="eyebrow">
+            ESP32 CONFIGURATION
+        </p>
+
+
+        <h1>
+            WiFi Manager
+        </h1>
+
+
+        <p class="subtitle">
+
+            Configure the WiFi connection
+            of the Aizza ESP32 DHT11
+            environment monitor.
+
+        </p>
+
+
+        <form
+            method="POST"
+            action="/"
+        >
+
+
+            <label for="ssid">
+                WIFI SSID
+            </label>
+
+            <input
+                id="ssid"
+                name="ssid"
+                type="text"
+                placeholder="Enter WiFi name"
+                required
+            >
+
+
+            <label for="pass">
+                WIFI PASSWORD
+            </label>
+
+            <input
+                id="pass"
+                name="pass"
+                type="password"
+                placeholder="Enter WiFi password"
+                required
+            >
+
+
+            <label for="ip">
+                STATIC IP
+            </label>
+
+            <input
+                id="ip"
+                name="ip"
+                type="text"
+                placeholder="Leave blank for DHCP"
+            >
+
+
+            <label for="gateway">
+                GATEWAY
+            </label>
+
+            <input
+                id="gateway"
+                name="gateway"
+                type="text"
+                placeholder="Leave blank for DHCP"
+            >
+
+
+            <button type="submit">
+                SAVE & CONNECT
+            </button>
+
+        </form>
+
+
+        <p class="note">
+
+            For normal WiFi connection,
+            leave Static IP and Gateway blank.
+            The ESP32 will automatically request
+            an IP address from the router.
+
+        </p>
+
+
+        <footer>
+            AIZZA ENVIRONMENT MONITOR • ACT4
+        </footer>
+
+
+    </main>
+
+</body>
+
+</html>
