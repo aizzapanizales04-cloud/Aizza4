@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aizza Environment Monitor - ACT4</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <header class="header">
+
+            <div>
+
+                <p class="eyebrow">
+                    REALTIME MONITOR
+                </p>
+
+                <h1>
+                    Aizza Environment Monitor
+                </h1>
+
+                <p class="subtitle">
+                    ESP32 DHT11 temperature & humidity dashboard
+                </p>
+
+            </div>
+
+
+            <div class="status-wrapper">
+
+                <span
+                    id="firebaseStatusDot"
+                    class="status-dot"
+                ></span>
+
+                <span id="firebaseStatus">
+                    CONNECTING
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             CURRENT READINGS
+        ========================================== -->
+
+        <section class="current-section">
+
+            <div class="sensor-card">
+
+                <p class="label">
+                    TEMPERATURE
+                </p>
+
+                <h2 id="currentTemperature">
+                    -- °C
+                </h2>
+
+            </div>
+
+
+            <div class="sensor-card">
+
+                <p class="label">
+                    HUMIDITY
+                </p>
+
+                <h2 id="currentHumidity">
+                    -- %
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SENSOR GRAPH
+        ========================================== -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="label">
+                        SENSOR GRAPH
+                    </p>
+
+                    <h2>
+                        Temperature & Humidity
+                    </h2>
+
+                </div>
+
+
+                <select id="graphDate">
+
+                    <option value="">
+                        Select Date
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas
+                    id="sensorChart"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             HISTORY
+        ========================================== -->
+
+        <section class="card">
+
+            <div class="history-header">
+
+                <div>
+
+                    <p class="label">
+                        SENSOR HISTORY
+                    </p>
+
+                    <h2>
+                        Recorded Data
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="toggleHistory"
+                    class="black-button"
+                >
+                    SHOW HISTORY
+                </button>
+
+            </div>
+
+
+            <div
+                id="historyContent"
+                class="hidden"
+            >
+
+                <div class="history-controls">
+
+                    <label for="historyDate">
+                        SELECT DATE
+                    </label>
+
+                    <select id="historyDate">
+
+                        <option value="">
+                            Select Date
+                        </option>
+
+                    </select>
+
+                    <span id="recordCount">
+                        0 records
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    TIME
+                                </th>
+
+                                <th>
+                                    TEMPERATURE
+                                </th>
+
+                                <th>
+                                    HUMIDITY
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="historyTableBody"
+                        >
+
+                            <tr>
+
+                                <td
+                                    colspan="3"
+                                    class="empty"
+                                >
+                                    Waiting for sensor records...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WIFI MANAGER
+        ========================================== -->
+
+        <section class="card wifi-section">
+
+            <p class="label">
+                ESP32 CONFIGURATION
+            </p>
+
+            <h2>
+                WiFi Manager
+            </h2>
+
+            <p>
+                Configure the WiFi connection
+                of the Aizza ESP32 data logger.
+            </p>
+
+            <a
+                href="/change-wifi"
+                class="black-button"
+            >
+                CHANGE WIFI
+            </a>
+
+        </section>
+
+
+        <!-- =========================================
+             MESSAGE
+        ========================================== -->
+
+        <div
+            id="message"
+            class="message"
+        >
+            System ready.
+        </div>
+
+
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
+
+        <footer>
+
+            <span>
+                AIZZA ENVIRONMENT MONITOR
+            </span>
+
+            <span>
+                •
+            </span>
+
+            <span>
+                ESP32 + FIREBASE
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =========================================
+         CHART.JS
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <!-- =========================================
+         FIREBASE APP
+    ========================================== -->
+
+    <script
+        type="module"
+        src="app.js"
+    ></script>
+
+</body>
+
+</html>
